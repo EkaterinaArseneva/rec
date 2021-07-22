@@ -25,16 +25,4 @@ def postfilter_items(user_id, recommednations):
     pass
 
 
-def get_recommendations(user, model, sparse_user_item, N=5):
-    """Рекомендуем топ-N товаров"""
-
-    res = [id_to_itemid[rec[0]] for rec in
-           model.recommend(userid=userid_to_id[user],
-                           user_items=sparse_user_item,  # на вход user-item matrix
-                           N=N,
-                           filter_already_liked_items=False,
-                           filter_items=[itemid_to_id[999999]],  # !!!
-                           recalculate_user=True)]
-    return res
-
 
